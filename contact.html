@@ -1,11 +1,81 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
+
 <head>
-	<meta charset="utf-8">
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="contacts.css">
-</head>	
+	<header>
+		<h1>SHOPPAHOLIC EXPRESS</h1>
+	</header>
+	<style>
+		/* Style the header */
+		header {
+			background-color: #1abc9c;
+			padding: 30px;
+			text-align: center;
+			font-size: 15px;
+			color: white;
+			font-family: "Helvetica Neue", sans-serif;
+		}
+
+
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			background-color: #333;
+		}
+
+		/* Style the footer */
+		footer {
+			background-color: #333;
+			padding: 10px;
+			text-align: center;
+			color: white;
+		}
+
+		li {
+			float: left;
+		}
+
+		li a {
+			display: block;
+			color: white;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+		}
+
+		li a.active {
+			background-color: #4CAF50;
+			color: white;
+		}
+
+		li a:hover:not(.active) {
+			background-color: #555;
+			color: white;
+		}
+
+		h1.lol {
+			font-family: Gill Sans, Verdana;
+			font-size: 11px;
+			line-height: 35px;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			font-weight: bold;
+		}
+	</style>
+</head>
+
 <body>
+	<ul>
+		<li><a href="index.html">Home</a></li>
+		<li><a href="Men.html">Men</a></li>
+		<li><a href="women.html">Women</a></li>
+		<li><a href="Kids.html">Kids</a></li>
+		<li><a href="Brands.html">Brands</a></li>
+		<li><a class="active" href="About.html">About</a></li>
+		<li><a href="Contact.html">Contact </a></li>
+	</ul>
 	<div class="contacts-form">
 		<h1>Contact Us</h1>
 		<div class="txtb">
@@ -17,19 +87,20 @@
 			<input type="text" name="" value="" placeholder="Email">
 		</div>
 
-	<div class="txtb">
+		<div class="txtb">
 			<label>Phone Number :</label>
 			<input type="text" name="" value="" placeholder="Enter your Phone Number">
-			</div>
+		</div>
 
-			<div class="txtb">
+		<div class="txtb">
 			<label>Message:</label>
 			<textarea></textarea>
-			</div>
-			<a class="btn"=>Send</a>
-			</div>
+		</div>
+		<a class="btn"=>Send</a>
+	</div>
 
-	 </div>
+	</div>
 
 </body>
+
 </html>
