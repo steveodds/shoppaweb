@@ -5,44 +5,53 @@ header {
     font-size: 15px;
     color: white;
     font-family: "Helvetica Neue", sans-serif;
-  }
+}
 
-
-  ul {
+ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color: #333;
-  }
+}
 
-  /* Style the footer */
-  footer {
+/* Style the footer */
+
+footer {
     background-color: #333;
     padding: 10px;
     text-align: center;
     color: white;
-  }
+}
 
-  #aside1 {
+/* footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+    color: white;
+} */
+
+#aside1 {
     width: 50%;
     height: 300px;
     /* only for demonstration, should be removed */
     background: #ccc;
     padding: 20px;
-  }
+}
 
-  #aside2 {
-
+#aside2 {
     width: 50%;
     height: 300px;
     /* only for demonstration, should be removed */
     background: #cccc;
     padding: 20px;
+}
 
-  }
-
-  #airmax {
+#airmax {
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 5px;
@@ -51,63 +60,95 @@ header {
     margin-left: auto;
     margin-right: auto;
     display: block;
+}
 
-  }
-
-  p.excerpt {
+p.excerpt {
     font-family: "Helvetica Neue", sans-serif;
     font-size: 11px;
     line-height: 14px;
     text-transform: uppercase;
+}
 
-
-
-  }
-
-
-  #myIn {
+#myIn {
     float: left;
     padding: 10px;
     width: 100%;
     background-color: #f1f1f1;
     height: 500px;
     /* only for demonstration, should be removed */
-  }
+}
 
-  /* Clear floats after the columns */
-  section:after {
+/* Clear floats after the columns */
+
+section:after {
     content: "";
     display: table;
     clear: both;
-  }
+}
 
-  li {
+li {
     float: left;
-  }
+}
 
-  li a {
+li a {
     display: block;
     color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-  }
+}
 
-  li a.active {
+li a.active {
     background-color: #4CAF50;
     color: white;
-  }
+}
 
-  li a:hover:not(.active) {
+li a:hover:not(.active) {
     background-color: #555;
     color: white;
-  }
+}
 
-  h1.lol {
+h1.lol {
     font-family: Gill Sans, Verdana;
     font-size: 11px;
     line-height: 35px;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: bold;
-  }
+}
+
+.contacts-form {
+    text-align: center;
+    margin: 10px;
+}
+
+.txtb label {
+    display: block;
+    text-align: left;
+    margin: 3px;
+}
+
+.txtb input, textarea {
+    height: 30px;
+    width: 93%;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+.btn {
+    padding: 8px;
+    color: white;
+    background: #1abc9c;
+    border: none;
+    border-radius: 5px;
+}
+
+form, .content {
+    width: 25%;
+    margin: 0px auto;
+    padding: 20px;
+    border: 1px solid #B0C4DE;
+    background: white;
+}
