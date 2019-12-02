@@ -2,6 +2,51 @@
 include 'DBController.php';
 $db_handle = new DBController();
 ?>
+<?php
+session_start();
+require_once("dbcontroller.php");
+$db_handle = new DBController();
+if (!empty($_GET["action"])) {
+    switch ($_GET["action"]) {
+        case "add":
+            if (!empty($_POST["quantity"])) {
+                $productByCode = $db_handle->runQuery("SELECT * FROM products WHERE id='" . $_GET["code"] . "'");
+                $itemArray = array($productByCode[0]["code"] => array('name' => $productByCode[0]["name"], 'code' => $productByCode[0]["code"], 'quantity' => $_POST["quantity"], 'price' => $productByCode[0]["price"], 'image' => $productByCode[0]["image"]));
+
+                if (!empty($_SESSION["cart_item"])) {
+                    if (in_array($productByCode[0]["code"], array_keys($_SESSION["cart_item"]))) {
+                        foreach ($_SESSION["cart_item"] as $k => $v) {
+                            if ($productByCode[0]["code"] == $k) {
+                                if (empty($_SESSION["cart_item"][$k]["quantity"])) {
+                                    $_SESSION["cart_item"][$k]["quantity"] = 0;
+                                }
+                                $_SESSION["cart_item"][$k]["quantity"] += $_POST["quantity"];
+                            }
+                        }
+                    } else {
+                        $_SESSION["cart_item"] = array_merge($_SESSION["cart_item"], $itemArray);
+                    }
+                } else {
+                    $_SESSION["cart_item"] = $itemArray;
+                }
+            }
+            break;
+        case "remove":
+            if (!empty($_SESSION["cart_item"])) {
+                foreach ($_SESSION["cart_item"] as $k => $v) {
+                    if ($_GET["code"] == $k)
+                        unset($_SESSION["cart_item"][$k]);
+                    if (empty($_SESSION["cart_item"]))
+                        unset($_SESSION["cart_item"]);
+                }
+            }
+            break;
+        case "empty":
+            unset($_SESSION["cart_item"]);
+            break;
+    }
+}
+?>
 
 <!DOCTYPE html>
 <html>
@@ -21,7 +66,7 @@ $db_handle = new DBController();
   <ul>
     <li><a href="index.html">Home</a></li>
     <li><a href="Men.html">Men</a></li>
-    <li><a class="active" href="women.html">Women</a></li>
+    <li><a class="active" href="women.php">Women</a></li>
     <li><a href="Kids.html">Kids</a></li>
     <li><a href="Brands.html">Brands</a></li>
     <li><a href="About.html">About</a></li>
@@ -30,59 +75,33 @@ $db_handle = new DBController();
 
   <SECTION>
     <h1 class="lol" align="center">NEW WOMEN'S PRODUCTS</h1>
+    <div id="gridview">
+      <?php
+      $query = $db_handle->runQuery("SELECT * FROM products WHERE target='Women' ORDER BY id ASC");
+      if (!empty($query)) {
+        foreach ($query as $key => $value) {
+          ?>
+          <form method="post" action="cart.php?action=add&code=<?php echo $product_array[$key]["code"]; ?>">
+            <div class="image">
+              <img src="<?php echo $query[$key]["image"]; ?>" />
+              <div class="product-info">
+                <div class="product-title"><?php echo $query[$key]["name"]; ?></div>
+                <div class="product-category"><?php echo $query[$key]["category"]; ?>
 
-    <!-- <p style="float: left; font-size: 15pt; text-align: center; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
-      <img src="img\womens1.jpg" style="width: 100%">MARY JANE SHOES//BLACK $350.00</p>
-    <p style="float: left; font-size: 15pt; text-align: center; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
-      <img src="img\womens2.jpg" style="width: 100%">TWO PART COURT SHOES//BLACK HEATSEAL $23.00</p>
-    <p style="float: left; font-size: 15pt; text-align: center; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
-      <img src="img\womens3.jpg" style="width: 100%">CUT-OUT PEEP TOE SHOE BOOTS//BLACK $40.00</p>
-    </p>
-    <p style="clear: both;">
-      <p style="float: left; font-size: 15pt; text-align: center; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
-        <img src="img\womens4.jpg" style="width: 100%">SLINGBACK SHOE BOOTS//BLACK $70.99</p>
-      <p style="float: left; font-size: 15pt; text-align: center; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
-        <img src="img\womens5.jpg" style="width: 100%">ASYMMETRIC STRAP BLOCK HEEL SHOES//LEOPARD $500.00</p>
-      <p style="float: left; font-size: 15pt; text-align: center; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
-        <img src="img\womens6.jpg" style="width: 100%">TWO PART COURT SHOES//RED $500.00</p>
-      <p style="clear: both;"> -->
-
-
-      <div id="gridview">
-        <!-- <div class="heading">Product Gallery for Shopping Cart</div> -->
-        <?php
-        $query = $db_handle->runQuery("SELECT * FROM products ORDER BY id ASC");
-        if (!empty($query)) {
-            foreach ($query as $key => $value) {
-                ?>
-                <div class="image">
-                    <img src="<?php echo $query[$key]["image"]; ?>" />
-                    <div class="product-info">
-                        <div class="product-title"><?php echo $query[$key]["name"]; ?></div>
-                        <ul>
-                            <?php
-                                    for ($i = 1; $i <= 5; $i++) {
-                                        $selected = "";
-                                        if (!empty($query[$key]["average_rating"]) && $i <= $query[$key]["average_rating"]) {
-                                            $selected = "selected";
-                                        }
-                                        ?>
-                                <li class='<?php echo $selected; ?>'>★</li>
-                            <?php }  ?>
-                        </ul>
-                        <div class="product-category"><?php echo $query[$key]["category"]; ?>
-
-                        </div>
-                        <div class="add-to-cart">
-                            <div><?php echo $query[$key]["price"]; ?> USD</div>
-                            <div><img src="icon-cart.png" /></div>
-                        </div>
-                    </div>
                 </div>
-        <?php
-            }
+                <div class="add-to-cart">
+                  <div><?php echo $query[$key]["price"]; ?> USD</div>
+                  <div class="cart-action"><input type="text" class="product-quantity" name="quantity" value="1" size="2" />
+                    <input type="submit" value="Add to Cart" class="btnAddAction" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+      <?php
         }
-        ?>
+      }
+      ?>
     </div>
   </SECTION>
 
