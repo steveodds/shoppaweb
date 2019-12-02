@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("dbcontroller.php");
+require_once("DBController.php");
 $db_handle = new DBController();
 if (!empty($_GET["action"])) {
     switch ($_GET["action"]) {

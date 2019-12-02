@@ -4,7 +4,7 @@ $db_handle = new DBController();
 ?>
 <?php
 session_start();
-require_once("dbcontroller.php");
+require_once("DBController.php");
 $db_handle = new DBController();
 if (!empty($_GET["action"])) {
   switch ($_GET["action"]) {
@@ -65,12 +65,12 @@ if (!empty($_GET["action"])) {
 
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="Men.html">Men</a></li>
+      <li><a href="men.html">Men</a></li>
       <li><a class="active" href="women.php">Women</a></li>
-      <li><a href="Kids.html">Kids</a></li>
-      <li><a href="Brands.html">Brands</a></li>
-      <li><a href="About.html">About</a></li>
-      <li><a href="Contact.html">Contact </a></li>
+      <li><a href="kids.html">Kids</a></li>
+      <li><a href="brands.html">Brands</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact </a></li>
     </ul>
 
     <SECTION>
