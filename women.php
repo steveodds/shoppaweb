@@ -81,7 +81,7 @@ if (!empty($_GET["action"])) {
       if (!empty($query)) {
         foreach ($query as $key => $value) {
           ?>
-          <form method="post" action="cart.php?action=add&code=<?php echo $product_array[$key]["code"]; ?>">
+          <form method="post" action="cart.php?action=add&code=<?php echo $query[$key]["id"]; ?>">
             <div class="image">
               <img src="<?php echo $query[$key]["image"]; ?>" />
               <div class="product-info">

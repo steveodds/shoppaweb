@@ -7,12 +7,12 @@ if (!empty($_GET["action"])) {
         case "add":
             if (!empty($_POST["quantity"])) {
                 $productByCode = $db_handle->runQuery("SELECT * FROM products WHERE id='" . $_GET["code"] . "'");
-                $itemArray = array($productByCode[0]["code"] => array('name' => $productByCode[0]["name"], 'code' => $productByCode[0]["code"], 'quantity' => $_POST["quantity"], 'price' => $productByCode[0]["price"], 'image' => $productByCode[0]["image"]));
+                $itemArray = array($productByCode[0]["id"] => array('name' => $productByCode[0]["name"], 'code' => $productByCode[0]["id"], 'quantity' => $_POST["quantity"], 'price' => $productByCode[0]["price"], 'image' => $productByCode[0]["image"]));
 
                 if (!empty($_SESSION["cart_item"])) {
-                    if (in_array($productByCode[0]["code"], array_keys($_SESSION["cart_item"]))) {
+                    if (in_array($productByCode[0]["id"], array_keys($_SESSION["cart_item"]))) {
                         foreach ($_SESSION["cart_item"] as $k => $v) {
-                            if ($productByCode[0]["code"] == $k) {
+                            if ($productByCode[0]["id"] == $k) {
                                 if (empty($_SESSION["cart_item"][$k]["quantity"])) {
                                     $_SESSION["cart_item"][$k]["quantity"] = 0;
                                 }
@@ -51,6 +51,7 @@ if (!empty($_GET["action"])) {
         <img src="img\logo.png" alt="LOGO">
     </header>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="styleT.css">
 </head>
 
 <body>
@@ -67,7 +68,7 @@ if (!empty($_GET["action"])) {
     <div id="shopping-cart">
         <div class="txt-heading">Shopping Cart</div>
 
-        <a id="btnEmpty" href="index.php?action=empty">Empty Cart</a>
+        <a id="btnEmpty" href="cart.php?action=empty">Empty Cart</a>
         <?php
         if (isset($_SESSION["cart_item"])) {
             $total_quantity = 0;
@@ -93,7 +94,7 @@ if (!empty($_GET["action"])) {
                             <td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
                             <td style="text-align:right;"><?php echo "$ " . $item["price"]; ?></td>
                             <td style="text-align:right;"><?php echo "$ " . number_format($item_price, 2); ?></td>
-                            <td style="text-align:center;"><a href="index.php?action=remove&code=<?php echo $item["code"]; ?>" class="btnRemoveAction"><img src="icon-delete.png" alt="Remove Item" /></a></td>
+                            <td style="text-align:center;"><a href="cart.php?action=remove&code=<?php echo $item["code"]; ?>" class="btnRemoveAction"><img src="img\\icon-delete.png" alt="Remove Item" /></a></td>
                         </tr>
                     <?php
                             $total_quantity += $item["quantity"];
