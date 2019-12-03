@@ -20,8 +20,7 @@ div.image img {
 }
 
 div.image img:hover {
-    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.32), 0 0 0 0px
-        rgba(0, 0, 0, 0.16);
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.32), 0 0 0 0px rgba(0, 0, 0, 0.16);
 }
 
 .heading {
@@ -41,8 +40,8 @@ div.image img:hover {
     right: -1px;
     padding: 15% .75rem .75rem .75rem;
     background-color: transparent;
-    background-image: -webkit-linear-gradient(transparent,rgba(0,0,0,0.8));
-    background-image: linear-gradient(transparent,rgba(0,0,0,0.8));
+    background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
     background-position-y: -1px;
     color: #FFF;
     text-align: left;
@@ -87,11 +86,12 @@ div.image .product-info img {
 }
 
 .add-to-cart {
-    float:right;
+    float: right;
     text-align: right;
 }
 
 /* Responsive Styles */
+
 @media screen and (min-width: 1224px) {
     div.image {
         width: 300px;
@@ -113,37 +113,37 @@ div.image .product-info img {
 /* CART */
 
 #shopping-cart {
-	margin: 40px;
+    margin: 40px;
 }
 
 #product-grid {
-	margin: 40px;
+    margin: 40px;
 }
 
 #shopping-cart table {
-	width: 100%;
-	background-color: #F0F0F0;
+    width: 100%;
+    background-color: #F0F0F0;
 }
 
 #shopping-cart table td {
-	background-color: #FFFFFF;
+    background-color: #FFFFFF;
 }
 
 .txt-heading {
-	color: #211a1a;
-	border-bottom: 1px solid #E0E0E0;
-	overflow: auto;
+    color: #211a1a;
+    border-bottom: 1px solid #E0E0E0;
+    overflow: auto;
 }
 
 #btnEmpty {
-	background-color: #ffffff;
-	border: #d00000 1px solid;
-	padding: 5px 10px;
-	color: #d00000;
-	float: right;
-	text-decoration: none;
-	border-radius: 3px;
-	margin: 10px 0px;
+    background-color: #ffffff;
+    border: #d00000 1px solid;
+    padding: 5px 10px;
+    color: #d00000;
+    float: right;
+    text-decoration: none;
+    border-radius: 3px;
+    margin: 10px 0px;
 }
 
 .btnAddAction {
@@ -159,50 +159,50 @@ div.image .product-info img {
 }
 
 #product-grid .txt-heading {
-	margin-bottom: 18px;
+    margin-bottom: 18px;
 }
 
 .product-item {
-	float: left;
-	background: #ffffff;
-	margin: 30px 30px 0px 0px;
-	border: #E0E0E0 1px solid;
+    float: left;
+    background: #ffffff;
+    margin: 30px 30px 0px 0px;
+    border: #E0E0E0 1px solid;
 }
 
 .product-image {
-	height: 155px;
-	width: 250px;
-	background-color: #FFF;
+    height: 155px;
+    width: 250px;
+    background-color: #FFF;
 }
 
 .clear-float {
-	clear: both;
+    clear: both;
 }
 
 .demo-input-box {
-	border-radius: 2px;
-	border: #CCC 1px solid;
-	padding: 2px 1px;
+    border-radius: 2px;
+    border: #CCC 1px solid;
+    padding: 2px 1px;
 }
 
 .tbl-cart {
-	font-size: 0.9em;
+    font-size: 0.9em;
 }
 
 .tbl-cart th {
-	font-weight: normal;
+    font-weight: normal;
 }
 
 .product-title {
-	margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .product-price {
-	float:left;
+    float: left;
 }
 
 .cart-action {
-	float: right;
+    float: right;
 }
 
 .product-quantity {
@@ -217,7 +217,7 @@ div.image .product-info img {
 }
 
 .cart-item-image {
-	width: 30px;
+    width: 30px;
     height: 30px;
     border-radius: 50%;
     border: #E0E0E0 1px solid;
@@ -225,8 +225,42 @@ div.image .product-info img {
     vertical-align: middle;
     margin-right: 15px;
 }
+
 .no-records {
-	text-align: center;
-	clear: both;
-	margin: 38px 0px;
+    text-align: center;
+    clear: both;
+    margin: 38px 0px;
 }
+
+/* DROP DOWN */
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+  }
+  
+  li.dropdown {
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .dropdown-content a:hover {background-color: #f1f1f1;}
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
