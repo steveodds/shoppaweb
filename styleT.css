@@ -236,6 +236,18 @@ div.image .product-info img {
     margin-right: 15px;
 }
 
+.men-NEW {
+    width: 90%;
+    height: 100%;
+    margin-left: 80px;
+}
+
+.women-NEW {
+    width: 90%;
+    height: 100%;
+    margin-left: 80px;
+}
+
 .no-records {
     text-align: center;
     clear: both;
