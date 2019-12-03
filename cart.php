@@ -43,83 +43,108 @@ if (!empty($_GET["action"])) {
     }
 }
 ?>
-<!DOCTYPE html>
-<html>
+    <!DOCTYPE html>
+    <html>
 
-<head>
-    <header>
-        <img src="img\logo.png" alt="LOGO">
-    </header>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" type="text/css" href="styleT.css">
-</head>
+    <head>
+        <header>
+            <img src="img\logo.png" alt="LOGO">
+        </header>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="styleT.css">
+    </head>
 
-<body>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="men.php">Men</a></li>
-        <li><a href="women.php">Women</a></li>
-        <li><a href="kids.php">Kids</a></li>
-        <li><a href="brands.html">Brands</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact </a></li>
-    </ul>
+    <body>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="men.php">Men</a>
+                <div class="dropdown-content">
+                    <a href="men/new_arrivals.php">New Arrivals</a>
+                    <a href="men/casual.php">Casual</a>
+                    <a href="men/formal.php">Formal</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="women.php">Women</a>
+                <div class="dropdown-content">
+                    <a href="women/new_arrivals.php">New Arrivals</a>
+                    <a href="women/casual.php">Casual</a>
+                    <a href="women/formal.php">Formal</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="kids.php">Kids</a>
+                <div class="dropdown-content">
+                    <a href="kids/boys.php">Boys</a>
+                    <a href="kids/girls.php">Girls</a>
+                </div>
+            </li>
+            <li><a href="brands.html">Brands</a></li>
+            <li class="dropdown">
+                <a href="about.html">About</a>
+                <div class="dropdown-content">
+                    <a href="about/locations.html">Store Locations</a>
+                    <a href="about.html">Our Story</a>
+                </div>
+            </li>
+            <li><a href="contact.html">Contact </a></li>
+        </ul>
+        <div id="shopping-cart">
+            <div class="txt-heading">Shopping Cart</div>
 
-    <div id="shopping-cart">
-        <div class="txt-heading">Shopping Cart</div>
-
-        <a id="btnEmpty" href="cart.php?action=empty">Empty Cart</a>
-        <?php
-        if (isset($_SESSION["cart_item"])) {
-            $total_quantity = 0;
-            $total_price = 0;
-            ?>
-            <table class="tbl-cart" cellpadding="10" cellspacing="1">
-                <tbody>
-                    <tr>
-                        <th style="text-align:left;">Name</th>
-                        <th style="text-align:left;">Code</th>
-                        <th style="text-align:right;" width="5%">Quantity</th>
-                        <th style="text-align:right;" width="10%">Unit Price</th>
-                        <th style="text-align:right;" width="10%">Price</th>
-                        <th style="text-align:center;" width="5%">Remove</th>
-                    </tr>
-                    <?php
-                        foreach ($_SESSION["cart_item"] as $item) {
-                            $item_price = $item["quantity"] * $item["price"];
-                            ?>
+            <a id="btnEmpty" href="cart.php?action=empty">Empty Cart</a>
+            <?php
+            if (isset($_SESSION["cart_item"])) {
+                $total_quantity = 0;
+                $total_price = 0;
+                ?>
+                <table class="tbl-cart" cellpadding="10" cellspacing="1">
+                    <tbody>
                         <tr>
-                            <td><img src="<?php echo $item["image"]; ?>" class="cart-item-image" /><?php echo $item["name"]; ?></td>
-                            <td><?php echo $item["code"]; ?></td>
-                            <td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
-                            <td style="text-align:right;"><?php echo "$ " . $item["price"]; ?></td>
-                            <td style="text-align:right;"><?php echo "$ " . number_format($item_price, 2); ?></td>
-                            <td style="text-align:center;"><a href="cart.php?action=remove&code=<?php echo $item["code"]; ?>" class="btnRemoveAction"><img src="img\\icon-delete.png" alt="Remove Item" /></a></td>
+                            <th style="text-align:left;">Name</th>
+                            <th style="text-align:left;">Code</th>
+                            <th style="text-align:right;" width="5%">Quantity</th>
+                            <th style="text-align:right;" width="10%">Unit Price</th>
+                            <th style="text-align:right;" width="10%">Price</th>
+                            <th style="text-align:center;" width="5%">Remove</th>
                         </tr>
-                    <?php
-                            $total_quantity += $item["quantity"];
-                            $total_price += ($item["price"] * $item["quantity"]);
-                        }
-                        ?>
+                        <?php
+                            foreach ($_SESSION["cart_item"] as $item) {
+                                $item_price = $item["quantity"] * $item["price"];
+                                ?>
+                            <tr>
+                                <td><img src="<?php echo $item["image"]; ?>" class="cart-item-image" /><?php echo $item["name"]; ?></td>
+                                <td><?php echo $item["code"]; ?></td>
+                                <td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
+                                <td style="text-align:right;"><?php echo "$ " . $item["price"]; ?></td>
+                                <td style="text-align:right;"><?php echo "$ " . number_format($item_price, 2); ?></td>
+                                <td style="text-align:center;"><a href="cart.php?action=remove&code=<?php echo $item["code"]; ?>" class="btnRemoveAction"><img src="img\\icon-delete.png" alt="Remove Item" /></a></td>
+                            </tr>
+                        <?php
+                                $total_quantity += $item["quantity"];
+                                $total_price += ($item["price"] * $item["quantity"]);
+                            }
+                            ?>
 
-                    <tr>
-                        <td colspan="2" align="right">Total:</td>
-                        <td align="right"><?php echo $total_quantity; ?></td>
-                        <td align="right" colspan="2"><strong><?php echo "$ " . number_format($total_price, 2); ?></strong></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-        <?php
-        } else {
+                        <tr>
+                            <td colspan="2" align="right">Total:</td>
+                            <td align="right"><?php echo $total_quantity; ?></td>
+                            <td align="right" colspan="2"><strong><?php echo "$ " . number_format($total_price, 2); ?></strong></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            <?php
+            } else {
+                ?>
+                <div class="no-records">Your Cart is Empty</div>
+            <?php
+            }
             ?>
-            <div class="no-records">Your Cart is Empty</div>
-        <?php
-        }
-        ?>
-    </div>
+        </div>
 
-    <!-- <div id="product-grid">
+        <!-- <div id="product-grid">
         <div class="txt-heading">Products</div>
         <?php
         $product_array = $db_handle->runQuery("SELECT * FROM tblproduct ORDER BY id ASC");
@@ -141,10 +166,10 @@ if (!empty($_GET["action"])) {
         }
         ?>
     </div> -->
-</body>
-<footer>
-    <p>Contact us:+2547890056 About Us</p>
-    <p>All rights reserved ©2019</p>
-</footer>
+    </body>
+    <footer>
+        <p>Contact us:+2547890056 About Us</p>
+        <p>All rights reserved ©2019</p>
+    </footer>
 
-</html>
+    </html>

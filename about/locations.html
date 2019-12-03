@@ -3,13 +3,13 @@
 
 <head>
     <header>
-        <img src="img\logo.png" alt="LOGO">
+        <img src="../img/logo.png" alt="LOGO">
     </header>
     <style>
         section {
             display: block;
             height: auto;
-            background: url("img\\li.jpg");
+            background: url("../img/li.jpg");
         }
 
         .example_c {
@@ -43,18 +43,45 @@
             align-self: center;
         }
     </style>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="stylesheet" type="text/css" href="../styleT.css">
 </head>
 
 <body>
     <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="men.php">Men</a></li>
-        <li><a href="women.php">Women</a></li>
-        <li><a href="kids.php">Kids</a></li>
-        <li><a href="brands.html">Brands</a></li>
-        <li><a class="active" href="about.html">About</a></li>
-        <li><a href="contact.html">Contact </a></li>
+        <li><a href="../index.html">Home</a></li>
+        <li class="dropdown">
+            <a href="../men.php">Men</a>
+            <div class="dropdown-content">
+                <a href="../men/new_arrivals.php">New Arrivals</a>
+                <a href="../men/casual.php">Casual</a>
+                <a href="../men/formal.php">Formal</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="../women.php">Women</a>
+            <div class="dropdown-content">
+                <a href="../women/new_arrivals.php">New Arrivals</a>
+                <a href="../women/casual.php">Casual</a>
+                <a href="../women/formal.php">Formal</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="../kids.php">Kids</a>
+            <div class="dropdown-content">
+                <a href="../kids/boys.php">Boys</a>
+                <a href="../kids/girls.php">Girls</a>
+            </div>
+        </li>
+        <li><a href="../brands.html">Brands</a></li>
+        <li class="dropdown">
+            <a class="active" href="../about.html">About</a>
+            <div class="dropdown-content">
+                <a class="active" href="locations.html">Store Locations</a>
+                <a href="../about.html">Our Story</a>
+            </div>
+        </li>
+        <li><a href="../contact.html">Contact </a></li>
     </ul>
 
 
@@ -69,7 +96,7 @@
         </div>
 
 
-        <div class="button_cont" align="center"><a class="example_c" href="contact.html" target="_blank"
+        <div class="button_cont" align="center"><a class="example_c" href="../contact.html"
                 rel="nofollow noopener">Get in touch</a></div>
 
     </section>
@@ -83,24 +110,16 @@
     <div style="width: 100%; background:#ffff; display: table;">
         <div style="display: table-row">
             <div id="aside1" style="width: 600px; display: table-cell; padding:10px">
-                <img src="img\kenya.png">
+                <img src="../img/kenya.png">
                 <h1 class="lol" align="center">Nairobi CBD ,Kenya</h1>
-
-
-
-
                 <p class="excerpt" align="center">748 Moi Avenue </p>
                 <p align="center">Office +254 750 519 0157 (Mon-Fri)</p>
 
             </div>
             <div id="aside2" style="display: table-cell;">
 
-                <img src="img\tanzania.png">
+                <img src="../img/tanzania.png">
                 <h1 class="lol" align="center">Dodoma CBD ,Tanzania</h1>
-
-
-
-
                 <p class="excerpt" align="center">Julias Nyerere street 85 </p>
                 <p align="center">Office +255 410 819 0188 (Mon-Fri)</p>
 

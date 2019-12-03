@@ -12,11 +12,37 @@
 <body>
     <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="men.php">Men</a></li>
-        <li><a href="women.php">Women</a></li>
-        <li><a href="kids.php">Kids</a></li>
+        <li class="dropdown">
+            <a href="men.php">Men</a>
+            <div class="dropdown-content">
+                <a href="men/new_arrivals.php">New Arrivals</a>
+                <a href="men/casual.php">Casual</a>
+                <a href="men/formal.php">Formal</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="women.php">Women</a>
+            <div class="dropdown-content">
+                <a href="women/new_arrivals.php">New Arrivals</a>
+                <a href="women/casual.php">Casual</a>
+                <a href="women/formal.php">Formal</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="kids.php">Kids</a>
+            <div class="dropdown-content">
+                <a href="kids/boys.php">Boys</a>
+                <a href="kids/girls.php">Girls</a>
+            </div>
+        </li>
         <li><a href="brands.html">Brands</a></li>
-        <li><a href="about.html">About</a></li>
+        <li class="dropdown">
+            <a href="about.html">About</a>
+            <div class="dropdown-content">
+                <a href="about/locations.html">Store Locations</a>
+                <a href="about.html">Our Story</a>
+            </div>
+        </li>
         <li><a href="contact.html">Contact </a></li>
     </ul>
 

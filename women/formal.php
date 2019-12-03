@@ -1,10 +1,10 @@
 <?php
-include 'DBController.php';
+include '../DBController.php';
 $db_handle = new DBController();
 ?>
 <?php
 session_start();
-require_once("DBController.php");
+require_once("../DBController.php");
 $db_handle = new DBController();
 if (!empty($_GET["action"])) {
   switch ($_GET["action"]) {
@@ -53,61 +53,61 @@ if (!empty($_GET["action"])) {
 
   <head>
     <header>
-      <img src="img\logo.png" alt="LOGO">
+      <img src="../img/logo.png" alt="LOGO">
     </header>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" type="text/css" href="styleT.css">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="stylesheet" type="text/css" href="../styleT.css">
   </head>
 
   <body>
 
     <ul>
-      <li><a href="index.html">Home</a></li>
+      <li><a href="../index.html">Home</a></li>
       <li class="dropdown">
-        <a href="men.php">Men</a>
+        <a href="../men.php">Men</a>
         <div class="dropdown-content">
-          <a href="men/new_arrivals.php">New Arrivals</a>
-          <a href="men/casual.php">Casual</a>
-          <a href="men/formal.php">Formal</a>
+          <a href="../men/new_arrivals.php">New Arrivals</a>
+          <a href="../men/casual.php">Casual</a>
+          <a href="../men/formal.php">Formal</a>
         </div>
       </li>
       <li class="dropdown">
-        <a class="active" href="women.php">Women</a>
+        <a class="active" href="../women.php">Women</a>
         <div class="dropdown-content">
-          <a href="women/new_arrivals.php">New Arrivals</a>
-          <a href="women/casual.php">Casual</a>
-          <a href="women/formal.php">Formal</a>
+          <a href="../women/new_arrivals.php">New Arrivals</a>
+          <a href="../women/casual.php">Casual</a>
+          <a class="active" href="../women/formal.php">Formal</a>
         </div>
       </li>
       <li class="dropdown">
-        <a href="kids.php">Kids</a>
+        <a href="../kids.php">Kids</a>
         <div class="dropdown-content">
-          <a href="kids/boys.php">Boys</a>
-          <a href="kids/girls.php">Girls</a>
+          <a href="../kids/boys.php">Boys</a>
+          <a href="../kids/girls.php">Girls</a>
         </div>
       </li>
-      <li><a href="brands.html">Brands</a></li>
+      <li><a href="../brands.html">Brands</a></li>
       <li class="dropdown">
-        <a href="about.html">About</a>
+        <a href="../about.html">About</a>
         <div class="dropdown-content">
-          <a href="about/locations.html">Store Locations</a>
-          <a href="about.html">Our Story</a>
+          <a href="../about/locations.html">Store Locations</a>
+          <a href="../about.html">Our Story</a>
         </div>
       </li>
-      <li><a href="contact.html">Contact </a></li>
+      <li><a href="../contact.html">Contact </a></li>
     </ul>
 
     <SECTION>
-      <h1 class="lol" align="center">NEW WOMEN'S PRODUCTS</h1>
+      <h1 class="lol" align="center">WOMEN'S FORMAL PRODUCTS</h1>
       <div id="gridview">
         <?php
-        $query = $db_handle->runQuery("SELECT * FROM products WHERE target='Women' ORDER BY id ASC");
+        $query = $db_handle->runQuery("SELECT * FROM products WHERE target='Women' AND category='Formal' ORDER BY id ASC");
         if (!empty($query)) {
           foreach ($query as $key => $value) {
             ?>
             <div class="image">
-              <img src="<?php echo $query[$key]["image"]; ?>" />
-              <form method="post" action="cart.php?action=add&code=<?php echo $query[$key]["id"]; ?>">
+              <img src="../<?php echo $query[$key]["image"]; ?>" />
+              <form method="post" action="../cart.php?action=add&code=<?php echo $query[$key]["id"]; ?>">
                 <div class="product-info">
                   <div class="product-title"><?php echo $query[$key]["name"]; ?></div>
                   <div class="product-category"><?php echo $query[$key]["category"]; ?>
