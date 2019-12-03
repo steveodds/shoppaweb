@@ -7,6 +7,7 @@
         <img src="img\logo.png" alt="LOGO">
     </header>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="styleT.css">
 </head>
 
 <body>

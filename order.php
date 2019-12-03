@@ -96,9 +96,8 @@ if (!empty($_GET["action"])) {
             </li>
         </ul>
         <div id="shopping-cart">
-            <div class="txt-heading">Shopping Cart</div>
-            <a id="btnCheckout" href="sign_in.php">Checkout</a>
-            <a id="btnEmpty" href="cart.php?action=empty">Empty Cart</a>
+            <div class="txt-heading"><?php echo $_SESSION['username'];?>'s Order</div>
+            <a id="btnCheckout" href="order.php">PAY</a>
             <?php
             if (isset($_SESSION["cart_item"])) {
                 $total_quantity = 0;
@@ -112,7 +111,6 @@ if (!empty($_GET["action"])) {
                             <th style="text-align:right;" width="5%">Quantity</th>
                             <th style="text-align:right;" width="10%">Unit Price</th>
                             <th style="text-align:right;" width="10%">Price</th>
-                            <th style="text-align:center;" width="5%">Remove</th>
                         </tr>
                         <?php
                             foreach ($_SESSION["cart_item"] as $item) {
@@ -124,7 +122,6 @@ if (!empty($_GET["action"])) {
                                 <td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
                                 <td style="text-align:right;"><?php echo "$ " . $item["price"]; ?></td>
                                 <td style="text-align:right;"><?php echo "$ " . number_format($item_price, 2); ?></td>
-                                <td style="text-align:center;"><a href="cart.php?action=remove&code=<?php echo $item["code"]; ?>" class="btnRemoveAction"><img src="img\\icon-delete.png" alt="Remove Item" /></a></td>
                             </tr>
                         <?php
                                 $total_quantity += $item["quantity"];
@@ -133,7 +130,7 @@ if (!empty($_GET["action"])) {
                             ?>
 
                         <tr>
-                            <td colspan="2" align="right">Total:</td>
+                            <td colspan="2" align="right">Total Due:</td>
                             <td align="right"><?php echo $total_quantity; ?></td>
                             <td align="right" colspan="2"><strong><?php echo "$ " . number_format($total_price, 2); ?></strong></td>
                             <td></td>
@@ -143,34 +140,11 @@ if (!empty($_GET["action"])) {
             <?php
             } else {
                 ?>
-                <div class="no-records">Your Cart is Empty</div>
+                <div class="no-records">You have no items in your order. Browse the product sections and add items to your cart.</div>
             <?php
             }
             ?>
         </div>
-
-        <!-- <div id="product-grid">
-        <div class="txt-heading">Products</div>
-        <?php
-        $product_array = $db_handle->runQuery("SELECT * FROM tblproduct ORDER BY id ASC");
-        if (!empty($product_array)) {
-            foreach ($product_array as $key => $value) {
-                ?>
-                <div class="product-item">
-                    <form method="post" action="index.php?action=add&code=<?php echo $product_array[$key]["code"]; ?>">
-                        <div class="product-image"><img src="<?php echo $product_array[$key]["image"]; ?>"></div>
-                        <div class="product-tile-footer">
-                            <div class="product-title"><?php echo $product_array[$key]["name"]; ?></div>
-                            <div class="product-price"><?php echo "$" . $product_array[$key]["price"]; ?></div>
-                            <div class="cart-action"><input type="text" class="product-quantity" name="quantity" value="1" size="2" /><input type="submit" value="Add to Cart" class="btnAddAction" /></div>
-                        </div>
-                    </form>
-                </div>
-        <?php
-            }
-        }
-        ?>
-    </div> -->
     </body>
     <footer>
         <p>Contact us:+2547890056 About Us</p>
