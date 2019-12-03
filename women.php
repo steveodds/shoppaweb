@@ -65,7 +65,7 @@ if (!empty($_GET["action"])) {
 
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="men.html">Men</a></li>
+      <li><a href="men.php">Men</a></li>
       <li><a class="active" href="women.php">Women</a></li>
       <li><a href="kids.html">Kids</a></li>
       <li><a href="brands.html">Brands</a></li>

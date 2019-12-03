@@ -57,12 +57,12 @@ if (!empty($_GET["action"])) {
 <body>
     <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="Men.html">Men</a></li>
+        <li><a href="men.php">Men</a></li>
         <li><a href="women.php">Women</a></li>
-        <li><a href="Kids.html">Kids</a></li>
-        <li><a href="Brands.html">Brands</a></li>
-        <li><a href="About.html">About</a></li>
-        <li><a href="Contact.html">Contact </a></li>
+        <li><a href="kids.html">Kids</a></li>
+        <li><a href="brands.html">Brands</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact </a></li>
     </ul>
 
     <div id="shopping-cart">
