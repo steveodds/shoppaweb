@@ -59,7 +59,7 @@ if (!empty($_GET["action"])) {
         <li><a href="index.html">Home</a></li>
         <li><a href="men.php">Men</a></li>
         <li><a href="women.php">Women</a></li>
-        <li><a href="kids.html">Kids</a></li>
+        <li><a href="kids.php">Kids</a></li>
         <li><a href="brands.html">Brands</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact </a></li>

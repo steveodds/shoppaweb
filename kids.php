@@ -48,6 +48,7 @@ if (!empty($_GET["action"])) {
 }
 ?>
 
+
   <!DOCTYPE html>
   <html>
 
@@ -66,18 +67,18 @@ if (!empty($_GET["action"])) {
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="men.php">Men</a></li>
-      <li><a class="active" href="women.php">Women</a></li>
-      <li><a href="kids.php">Kids</a></li>
+      <li><a href="women.php">Women</a></li>
+      <li><a class="active" href="kids.php">Kids</a></li>
       <li><a href="brands.html">Brands</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact </a></li>
     </ul>
 
     <SECTION>
-      <h1 class="lol" align="center">NEW WOMEN'S PRODUCTS</h1>
+      <h1 class="lol" align="center">NEW KID'S PRODUCTS</h1>
       <div id="gridview">
         <?php
-        $query = $db_handle->runQuery("SELECT * FROM products WHERE target='Women' ORDER BY id ASC");
+        $query = $db_handle->runQuery("SELECT * FROM products WHERE target='Kids' ORDER BY id ASC");
         if (!empty($query)) {
           foreach ($query as $key => $value) {
             ?>
