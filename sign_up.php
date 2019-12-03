@@ -44,6 +44,11 @@
             </div>
         </li>
         <li><a href="contact.html">Contact </a></li>
+        <li class="cart-button">
+            <a href="cart.php">
+                <img src="img/icon-cart.png" class="cart-T-image">
+            </a>
+        </li>
     </ul>
 
 

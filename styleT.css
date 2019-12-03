@@ -226,6 +226,16 @@ div.image .product-info img {
     margin-right: 15px;
 }
 
+.cart-T-image {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: #E0E0E0 1px solid;
+    padding: 0px;
+    vertical-align: middle;
+    margin-right: 15px;
+}
+
 .no-records {
     text-align: center;
     clear: both;
@@ -236,31 +246,37 @@ div.image .product-info img {
 
 li a:hover, .dropdown:hover .dropbtn {
     background-color: red;
-  }
-  
-  li.dropdown {
+}
+
+li.dropdown {
     display: inline-block;
-  }
-  
-  .dropdown-content {
+}
+
+li.cart-button {
+    float: right;
+}
+
+.dropdown-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-  }
-  
-  .dropdown-content a {
+}
+
+.dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
     text-align: left;
-  }
-  
-  .dropdown-content a:hover {background-color: #f1f1f1;}
-  
-  .dropdown:hover .dropdown-content {
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
     display: block;
-  }
+}
