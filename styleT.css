@@ -239,8 +239,8 @@ div.image .product-info img {
 }
 
 .cart-T-image {
-    width: 18px;
-    height: 18px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
     border: #E0E0E0 1px solid;
     padding: 0px;
@@ -278,6 +278,7 @@ li.dropdown {
 
 li.cart-button {
     float: right;
+    margin-right: 0px;
 }
 
 .dropdown-content {

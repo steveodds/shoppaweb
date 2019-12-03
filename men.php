@@ -64,6 +64,13 @@ if (!empty($_GET["action"])) {
     <ul>
       <li><a href="index.html">Home</a></li>
       <li class="dropdown">
+        <a href="about.html">About</a>
+        <div class="dropdown-content">
+          <a href="about/locations.html">Store Locations</a>
+          <a href="about.html">Our Story</a>
+        </div>
+      </li>
+      <li class="dropdown">
         <a class="active" href="men.php">Men</a>
         <div class="dropdown-content">
           <a href="men/new_arrivals.php">New Arrivals</a>
@@ -87,13 +94,6 @@ if (!empty($_GET["action"])) {
         </div>
       </li>
       <li><a href="brands.html">Brands</a></li>
-      <li class="dropdown">
-        <a href="about.html">About</a>
-        <div class="dropdown-content">
-          <a href="about/locations.html">Store Locations</a>
-          <a href="about.html">Our Story</a>
-        </div>
-      </li>
       <li><a href="contact.html">Contact </a></li>
       <li class="cart-button">
         <a href="cart.php">
